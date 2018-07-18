@@ -11,10 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 public class Index {
 
     @GetMapping("/")
-    public ModelAndView index(HttpServletRequest request) {
+    public String index(HttpServletRequest request) {
+        return "index";
+    }
+
+    @GetMapping("/index2")
+    public ModelAndView index2(HttpServletRequest request) {
         String referrer = request.getHeader("referer");
 
-        ModelAndView modelAndView = new ModelAndView("index");
+        ModelAndView modelAndView = new ModelAndView("index2");
         modelAndView.addObject("referrer", referrer);
         return modelAndView;
     }
